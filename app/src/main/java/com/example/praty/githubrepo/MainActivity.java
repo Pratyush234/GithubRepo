@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         mSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(mRepositories.size()>0)
+                    mRepositories.clear();
                 mPage=1;
                 mText.setVisibility(View.GONE);
                 mProgress.setVisibility(View.VISIBLE);
