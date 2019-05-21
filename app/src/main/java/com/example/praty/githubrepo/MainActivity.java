@@ -109,7 +109,13 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(@Nullable List<Repositories> repositories) {
                 if(repositories!=null) {
                     mRepositories.addAll(repositories);
-                    mTotal = mRepositories.get(0).getTotal_pages()/30;
+                    try{
+                        mTotal = mRepositories.get(0).getTotal_pages()/30;
+                    }catch (IndexOutOfBoundsException e){
+                        Log.e(TAG, "onChanged: indexOutOfBounds:",e);
+                        mText.setVisibility(View.VISIBLE);
+                        mRecycler.setVisibility(View.GONE);
+                    }
                 }
 
                 if(mRepositories.isEmpty()){
