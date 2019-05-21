@@ -118,13 +118,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                if(mRepositories.isEmpty()){
-                    mText.setVisibility(View.VISIBLE);
-                    mRecycler.setVisibility(View.GONE);
-                }
-
                 mAdapter.notifyDataSetChanged();
                 mProgress.setVisibility(View.GONE);
+                mRecycler.setVisibility(View.VISIBLE);
             }
         });
     }
